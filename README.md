@@ -1,24 +1,17 @@
-Livres API VERSION 1
-Getting Started
+Biblioteques API 
 Installation des Dépendances
 Python 3.10.0
 pip 21.3.1 from C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\pip (python 3.10)
 Suivez les instructions suivantes pour installer l'ancienne version de python sur la plateforme python docs
 
 Dépendances de PIP
-Pour installer les dépendances, ouvrez le dossier /Documentation et exécuter la commande suivante:
 
 pip install -r requirements.txt
 or
 pip3 install -r requirements.txt
 Nous passons donc à l'installation de tous les packages se trouvant dans le fichier requirements.txt.
 
-clé de Dépendances
-Flask est un petit framework web Python léger, qui fournit des outils et des fonctionnalités utiles qui facilitent la création d’applications web en Python.
-
 SQLAlchemy est un toolkit open source SQL et un mapping objet-relationnel écrit en Python et publié sous licence MIT. SQLAlchemy a opté pour l'utilisation du pattern Data Mapper plutôt que l'active record utilisés par de nombreux autres ORM
-
-Flask-CORS is the extension we'll use to handle cross origin requests from our frontend server.
 
 Démarrer le serveur
 Pour démarrer le serveur sur Linux ou Mac, executez:
@@ -34,8 +27,6 @@ flask run
 API REFERENCE
 Getting starter
 
-Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, http://localhost:5000; which is set as a proxy in frontend configuration.
-
 Type d'erreur
 Les erreurs sont renvoyées sou forme d'objet au format Json: { "success":False "error": 400 "message":"Ressource non disponible" }
 
@@ -49,56 +40,97 @@ GENERAL:
 
     
 EXEMPLE: curl http://localhost:5000/Livres
+       
         {
-    "livres": [
+    "Livres": [
         {
-            "auteur": "Gege Atakumi",
-            "code_ISBN": "979-1-0328",
-            "date_publication": "03-02-2022",
-            "editeur": "Ki-oon",
-            "id": 2,
-            "titre": "Jujutsu Kaisen T13"
+            "auteur": "Divine",
+            "categorie_id": 9,
+            "date_publication": "Fri, 30 Oct 1992 00:00:00 GMT",
+            "editeur": "Larousse",
+            "id": 6,
+            "isbn": "01-02",
+            "titre": "Magie blanche"
         },
         {
-            "auteur": "Louis Saulnier, Théodore Gringoire",
-            "code_ISBN": "978-2-0802",
-            "date_publication": "26-02-2022",
-            "editeur": "Flammarion",
-            "id": 3,
-            "titre": "Le répertoire de la cuisine"
+            "auteur": "Francky",
+            "categorie_id": 7,
+            "date_publication": "Sat, 03 Jan 2015 00:00:00 GMT",
+            "editeur": "Larousse",
+            "id": 7,
+            "isbn": "01-03",
+            "titre": "Boule*-boule"
         },
         {
-            "auteur": "Katia Bricka",
-            "code_ISBN": "978-2-8977",
-            "date_publication": "25-02-2022",
-            "editeur": "Modus Vivendi",
-            "id": 4,
-            "titre": "La recette parfaite"
+            "auteur": "Berg",
+            "categorie_id": 2,
+            "date_publication": "Fri, 14 Feb 2020 00:00:00 GMT",
+            "editeur": "Teletoon",
+            "id": 9,
+            "isbn": "20-07",
+            "titre": "Kaeloo"
         },
         {
-            "auteur": "Azychika, Takumi Fukui",
-            "code_ISBN": "979-1-0327",
-            "date_publication": "03-02-2022",
-            "editeur": "Ki-oon",
+            "auteur": "Modus",
+            "categorie_id": 1,
+            "date_publication": "Thu, 31 Dec 2020 00:00:00 GMT",
+            "editeur": "Modus",
             "id": 1,
-            "titre": "Jujutsu Kaisen"
+            "isbn": "966-669",
+            "titre": "Baiser sans"
+        },
+        {
+            "auteur": "Modus",
+            "categorie_id": 1,
+            "date_publication": "Thu, 31 Dec 2020 00:00:00 GMT",
+            "editeur": "Romuald",
+            "id": 5,
+            "isbn": "65-89",
+            "titre": "Baiser sans"
+        },
+        {
+            "auteur": "Modus",
+            "categorie_id": 1,
+            "date_publication": "Thu, 31 Dec 2020 00:00:00 GMT",
+            "editeur": "Syfy",
+            "id": 10,
+            "isbn": "8-07",
+            "titre": "Baiser sans"
+        },
+        {
+            "auteur": "Modus",
+            "categorie_id": 1,
+            "date_publication": "Thu, 31 Dec 2020 00:00:00 GMT",
+            "editeur": "Teletoon",
+            "id": 8,
+            "isbn": "20-07",
+            "titre": "Baiser sans"
+        },
+        {
+            "auteur": "bro",
+            "categorie_id": 2,
+            "date_publication": "Sat, 14 Nov 2015 00:00:00 GMT",
+            "editeur": "Viven",
+            "id": 4,
+            "isbn": "966-669",
+            "titre": "Elle aime sa mère"
         }
     ],
-    "status_code": 200,
     "success": true,
-    "total_livres": 4
+    "total_livres": 8
 }
 .##GET/livres(Livres_id) GENERAL: Cet endpoint permet de récupérer les informations d'un livre particulier s'il existe par le biais de l'ID.
 
-EXEMPLE: http://localhost:5000/Livres/3
+EXEMPLE: http://localhost:5000/Livres/7
     {
-        "auteur": "Louis Saulnier, Théodore Gringoire",
-        "code_ISBN": "978-2-0802",
-        "date_publication": "26-02-2022",
-        "editeur": "Flammarion",
-        "id": 3,
-        "titre": "Le répertoire de la cuisine"
-    }
+    "auteur": "Francky",
+    "categorie_id": 7,
+    "date_publication": "Sat, 03 Jan 2015 00:00:00 GMT",
+    "editeur": "Larousse",
+    "id": 7,
+    "isbn": "01-03",
+    "titre": "Boule*-boule"
+}
 . ## DELETE/livres (Livres_id)
 
 GENERAL:
@@ -132,60 +164,39 @@ EXEMPLE.....Avec Patch
       
   EXEMPLE: curl http://localhost:5000/categories
 
-      {
-  "category": [
-      {
-          "categorie": "Litterature",
-          "id": 1
-      },
-      {
-          "categorie": "Humour",
-          "id": 2
-      },
-      {
-          "categorie": "Tourisme et voyage",
-          "id": 3
-      },
-      {
-          "categorie": "Histoire",
-          "id": 5
-      },
-      {
-          "categorie": "Cuisine",
-          "id": 6
-      },
-      {
-          "categorie": "Droit et Economie",
-          "id": 7
-      },
-      {
-          "categorie": "Informatique et internet",
-          "id": 8
-      },
-      {
-          "categorie": "Sciences sociales",
-          "id": 9
-      },
-      {
-          "categorie": "Essais et documents",
-          "id": 10
-      },
-      {
-          "categorie": "Religion et spiritualité",
-          "id": 11
-      },
-      {
-          "categorie": "Art, musique et cinéma",
-          "id": 12
-      },
-      {
-          "categorie": "Bandes Dessinées",
-          "id": 4
-      }
-  ],
-  "status_code": 200,
-  "success": true,
-  "total": 12
+    {
+    "Categorie": [
+        {
+            "id": 2,
+            "libelle_categorie": "Physiques et chimie"
+        },
+        {
+            "id": 1,
+            "libelle_categorie": "Maths"
+        },
+        {
+            "id": 6,
+            "libelle_categorie": "Policier"
+        },
+        {
+            "id": 7,
+            "libelle_categorie": "Drame"
+        },
+        {
+            "id": 8,
+            "libelle_categorie": "Herotique"
+        },
+        {
+            "id": 9,
+            "libelle_categorie": "Fiction"
+        },
+        {
+            "id": 10,
+            "libelle_categorie": "Romantique"
+        }
+    ],
+    "success": true,
+    "total_categories": 7
 }
 .##GET/categories(categorie_id) GENERAL: Cet endpoint permet de récupérer les informations d'une categorie si elle existe par le biais de l'ID.
 
